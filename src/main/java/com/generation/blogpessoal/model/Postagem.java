@@ -1,6 +1,6 @@
 package com.generation.blogpessoal.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.annotations.UpdateTimestamp;
+
 
 //indica para o Spring que o objeto criado vai se tornar uma tabela
 @Entity
@@ -30,7 +31,8 @@ public class Postagem {
 	
 	private String texto;
 	
-	private Date data;
+	@UpdateTimestamp
+	private LocalDateTime data;
 
 	public Long getId() {
 		return id;
@@ -56,12 +58,11 @@ public class Postagem {
 		this.texto = texto;
 	}
 	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy") //mostrar data no postman no padrão BR
-	public Date getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
 	
