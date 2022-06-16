@@ -32,7 +32,6 @@ import com.generation.blogpessoal.repository.PostagemRepository;
 @RequestMapping("/postagens")
 public class PostagemController {
 	
-	//transfe a responsabilidade para a injeção de dependência
 	//funciona como injecao de dependencia, transferindo a responsabilidade de manipular o banco de dados para o PostagemRepository
 	@Autowired
 	private PostagemRepository repository;
